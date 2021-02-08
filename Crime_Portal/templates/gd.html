@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>General Diary</title>
+<div
+    style="background-image: url('/static/assets/images/bg3.jpg'); background-size: 100% 115%; padding-left: 2%; opacity: 0.85;">
+    <form class="form" action="\gd.html\" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2
+            style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center;">
+            Register a General Diary
+        </h2>
+        <h5
+            style="padding-left: 5px; color: yellow; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            * Your email, name, nid and other details will be automatically recored with this General Diary
+        </h5>
+
+        <div style="padding-top: 5px; padding-left: 5px; padding-right: 5px; width: 50%;">
+            <div class="form-group">
+                <label style="padding-top: 5px; font-weight: bold; color: white;" for="mobile">Your Mobile
+                    Number</label>
+                <input type="text" class="form-control" placeholder="Enter Mobile Number" name="mobile" id="mobile"
+                    style="background-color: lightyellow; " required>
+            </div>
+
+            <div class="form-group">
+                <label style="padding-top: 5px;font-weight: bold;color: white;" for="gdtype">General Diary Type</label>
+                <br>
+                <select id="gdtype" name="gdtype" style="width: max-content;color: black; background: snow;" required>
+                    <option value="">Select an Option ---- </option>
+                    <option value="Cyber_Crime">Cyber Crime</option>
+                    <option value="Steal_Or_Theft">Steal or Theft</option>
+                    <option value="Threatening">Threatening</option>
+                    <option value="Missing_Complain">Missing Complain</option>
+                    <option value="Snatching_or_Hijacking">Snatching or Hijacking</option>
+                    <option value="Information">Information</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="area">District Name</label><br>
+                <select id="area" name="area" style="width: max-content;color: black; background: snow;" required>
+                    <option value="">Select an Option ---- </option>
+                    {% for x in Dist_data %}
+                    <option value="{{x.district}}">{{x.district}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="psname">Police Station
+                    Name</label><br>
+                <select id="psname" name="psname" style="width: max-content;color: black; background: snow;" required>
+                    <option value="">Select an Option ---- </option>
+                    {% for x in PS_data %}
+                    <option value="{{x.psname}}">{{x.psname}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="subject">General Diary
+                    Subject</label>
+                <input type="text" class="form-control" placeholder="GD Subject" id="subject" name="gdsubject"
+                    style="background: lightyellow;" required>
+            </div>
+            <div>
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="datetime">Incident Happening
+                    Time</label><br>
+                <input type="datetime-local" name="datetime" required>
+            </div>
+
+            <div class="form-group">
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="gddetails">Describe your General
+                    Diary
+                    Details</label>
+                <br>
+                <textarea id="gddetails" rows="10" cols="60" name="gddetails" style="background: lightyellow    ; "
+                    required></textarea>
+            </div>
+
+            <div class="form-group" style="padding-top: 15px;">
+                <input type="submit" name="submit">
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+{% endblock %}

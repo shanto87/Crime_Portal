@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>News</title>
+<form action="crimenews.html" enctype="multipart/form-data" method="GET"
+    style="background-image: url('/static/assets/images/bg3.jpg');">
+    <h2 style="color: white; text-align: center;">News</h2>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="row container">
+        {% csrf_token %}
+        {% for x in data %}
+        <div style="padding-top: 10px;">
+            <a href=#{{x.title}} class="btn btn-secondary" data-toggle="collapse">{{x.title}}</a>
+            <div id={{x.title}} class="collapse" style="background-color: cornsilk; color: black;">
+                <h5>Posted at: {{x.date}}</h5>
+                <p>{{x.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</form>
+{% endblock %}

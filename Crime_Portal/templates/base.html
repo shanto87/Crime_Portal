@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--BootStrap Links inside head section-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!--Login Page Scripts-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+
+<body>
+    <!--NavBar Panel-->
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="\index.html">CRIME PORTAL BD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="\userDashboard.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="\aboutus.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item dropdown dropright">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            More...
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="\wantedlist.html">Wanted List</a></li>
+                            <li><a class="dropdown-item" href="\violencereporting.html">Violence Reporting</a></li>
+                            <li><a class="dropdown-item" href="\crimenews.html">News</a></li>
+                            <li><a class="dropdown-item" href="\localintelligence.html">Local Intelligence</a></li>
+                            <li><a class="dropdown-item" href="\gd.html">General Diary</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <a class="btn btn-light float-right" href="/login.html">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <!--NavBar Ends-->
+
+    <!--Content Replacement-->
+    <div class="bg-dark text-white">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <!--BootStrap JavaScript Script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!--Footer Panel-->
+    <footer class="bg-dark text-white text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Bangladesh Police</h5>
+
+                    <p>
+                        The Bangladesh Police (Bengali: বাংলাদেশ পুলিশ) of the People's Republic of Bangladesh is a law
+                        enforcement agency, operating under the Ministry of Home Affairs. It plays a crucial role in
+                        maintaining peace, and enforcement of law and order within Bangladesh. Though the police are
+                        primarily concerned with the maintenance of law and order and security of persons and property
+                        of individuals, they also play a big role in the criminal justice system.
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Important Links</h5>
+
+                    <a class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://www.btrc.gov.bd/useful-links/anti-corruption-commission"
+                                class="text-white">Anti Corruption Commission</a>
+                        </li>
+                        <li>
+                            <a href="http://www.btrc.gov.bd/useful-links/all-govt-forms" class="text-white">All Govt
+                                Forms</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mha.gov.bd/" class="text-white">Ministry of Home Affairs</a>
+                        </li>
+                        <li>
+                            <a href="http://www.pmo.gov.bd/" class="text-white">Prime Ministers Office</a>
+                        </li>
+                    </a>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">Important Links</h5>
+
+                    <a class="list-unstyled">
+                        <li>
+                            <a href="http://www.cabinet.gov.bd/" class="text-white">Cabinet Division</a>
+                        </li>
+                        <li>
+                            <a href="http://www.secbd.org/" class="text-white">Securities and Exchange Commission</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mofa.gov.bd/" class="text-white">Ministry of Foreign Affairs</a>
+                        </li>
+                        <li>
+                            <a href="http://www.bangladesh-bank.org/" class="text-white">Bangladesh Bank</a>
+                        </li>
+                    </a>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            <p> © 2020 Bangladesh Police, Government of the People's Republic of Bangladesh. All rights reserved.</p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>

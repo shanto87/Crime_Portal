@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Wanted Criminals</title>
+<form method="GET" class="form-horizontal" enctype="multipart/form-data">
+
+    <div style="background-color: coral;">
+        <marquee behavior="scroll" direction="left" scrollamount="9">
+            <h3 style="color: black;">Wanted Listed Criminals Data</h3>
+        </marquee>
+    </div>
+
+    {% csrf_token %}
+    <!-- 
+    <div class="row" style="background-color: rgb(134, 134, 122); margin-right: auto; margin-left: auto;">
+        {% for x in data %}
+        <div class="card bg-light"
+            style="width:15rem; height: auto; margin-bottom: 3%; margin-top: 1%; margin-left: auto; margin-right:auto">
+            <img class="card-img-top" src="{{x.image.url}}" alt="image" style="width:100%;">
+            <div class="card-body">
+                <h5 class="card-tittle"
+                    style="color: navy; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    Criminal Name: <br>{{x.name}}</h5>
+                <p class="card-text" style="font-family: Georgia, 'Times New Roman', Times, serif ;color: black;">
+                     <br>
+                    {{x.description}}</p>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>-->
+    <div class="container">
+        <h2>Data View</h2>
+        <p style="color: yellow; font-size: larger;">Updated till Date/Time: <span id="datetime"></span></p>
+
+        <!--Date Time Java Script-->
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleString();
+        </script>
+
+        <div class="table-responsive">
+            <table class="table table-bordered text-light bg-secondary">
+                <thead style="color: white; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+                    font-size: larger;">
+                    <tr>
+                        <th>Name</th>
+                        <th>Crime Details</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center; color: papayawhip; font-size: larger; ">
+                    {% for x in data %}
+                    <tr>
+                        <td>{{x.name}}</td>
+                        <td>{{x.description}}</td>
+                        <td> <img src="{{x.image.url}}" alt="image" style="height: 150px; width: 120px;"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</form>
+{% endblock %}

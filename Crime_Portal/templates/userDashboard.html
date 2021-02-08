@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>User Dashboard</title>
+<h3
+    style="text-align: center; background-color: bisque; color: black; font-family: Georgia, 'Times New Roman', Times, serif;">
+    User Profile</h3>
+
+<form action="/userDashboard.html/" enctype="multipart/form-data" method="GET">
+    {% csrf_token %}
+    <div class="card bg-secondary card-deck " style="width:100%; height: auto;">
+
+        {% for x in data%}
+        <img class="card-img-top" style="height: 400px; width: 290px;" src="{{x.image.url}}" alt="Card image">
+        <div class="card-body" style="background-color: gray;">
+            <h4 class="card-title"
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: black; font-weight: bold;">
+                {{x.firstname}}
+                {{x.lastname}}</h4>
+            <p class="card-text" style="color: white; ">National Identity: <strong
+                    style="color: black ;">{{x.nid}}</strong></p>
+            <p class="card-text" style="color: white; ">Resgistered Email: <strong
+                    style="color: black;">{{x.email}}</strong></p>
+            <a href="#" class="btn btn-primary">Edit Profile</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</form>
+{% endblock %}

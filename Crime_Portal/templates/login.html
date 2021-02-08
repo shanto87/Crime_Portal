@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--BootStrap Links inside head section-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!--Login Page Scripts-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <!--Navbar Start-->
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="/static/assets/images/police_logo.png" alt="" width="100" height="100">
+                <h3 style="color: cornsilk; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">
+                    <marquee behavior="scroll" direction="left" scrollamount="8">CRIME PORTAL BANGLADESH</marquee>
+                </h3>
+            </a>
+        </div>
+    </nav>
+    <!--Navbar End-->
+
+    <!--Login Section Start-->
+    <div class="container-fluid" style="background-color: linen;">
+        <div id="loginbox" style="margin-top:2px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title" style="font-size: x-large;">Sign In</div>
+                </div>
+
+                <div style="padding-top:30px" class="panel-body">
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                    <form id="loginform" action="\login.html\" class="form-horizontal" role="form" method="POST"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="username" class="col-md-3 control-label">Email</label>
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="username"
+                                placeholder="Email" required>
+                        </div>
+
+                        <label for="password" class="col-md-3 control-label">Password</label>
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control" name="password"
+                                placeholder="Password" required>
+                        </div>
+
+                        <div style="margin-top:10px" class="form-group">
+                            <!-- Button -->
+
+                            <div class="col-sm-12 controls">
+                                <!--
+                                    <a id="btn-login" href="" class="btn btn-success">Login </a>
+                                -->
+                                <input class="btn btn-success" type="submit" value="Login as User">
+                                <a class="btn btn-success" href="http://127.0.0.1:8000/admin">Login as Administrator</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--Message Panel Start-->
+                            {% for message in messages %}
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{message}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                            <!--Message Panel End-->
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div
+                                    style="border-top: 1px solid#888; padding-top:15px; font-size:large; font-weight: 600;">
+                                    Don't have an account!
+                                    <a href="/signup.html" onClick="$('#loginbox').hide(); $('#signupbox').show() "
+                                        style="color: purple; font-size: large; font-style: normal;">
+                                        Sign Up Here
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Login Section End-->
+
+    <!--BootStrap JavaScript Script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!--Footer Panel-->
+    <footer class="bg-dark text-white text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Bangladesh Police</h5>
+
+                    <p>
+                        The Bangladesh Police (Bengali: বাংলাদেশ পুলিশ) of the People's Republic of Bangladesh is a law
+                        enforcement agency, operating under the Ministry of Home Affairs. It plays a crucial role in
+                        maintaining peace, and enforcement of law and order within Bangladesh. Though the police are
+                        primarily concerned with the maintenance of law and order and security of persons and property
+                        of individuals, they also play a big role in the criminal justice system.
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Important Links</h5>
+
+                    <a class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://www.btrc.gov.bd/useful-links/anti-corruption-commission"
+                                class="text-white">Anti Corruption Commission</a>
+                        </li>
+                        <li>
+                            <a href="http://www.btrc.gov.bd/useful-links/all-govt-forms" class="text-white">All Govt
+                                Forms</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mha.gov.bd/" class="text-white">Ministry of Home Affairs</a>
+                        </li>
+                        <li>
+                            <a href="http://www.pmo.gov.bd/" class="text-white">Prime Ministers Office</a>
+                        </li>
+                    </a>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">Important Links</h5>
+
+                    <a class="list-unstyled">
+                        <li>
+                            <a href="http://www.cabinet.gov.bd/" class="text-white">Cabinet Division</a>
+                        </li>
+                        <li>
+                            <a href="http://www.secbd.org/" class="text-white">Securities and Exchange Commission</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mofa.gov.bd/" class="text-white">Ministry of Foreign Affairs</a>
+                        </li>
+                        <li>
+                            <a href="http://www.bangladesh-bank.org/" class="text-white">Bangladesh Bank</a>
+                        </li>
+                    </a>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            <p> © 2020 Bangladesh Police, Government of the People's Republic of Bangladesh. All rights reserved.</p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>

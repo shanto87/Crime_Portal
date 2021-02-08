@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title>Home</title>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+            <img src="/static/assets/images/carousal 1.png" class="d-block w-100" alt="Image 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">SUB INSPECTOR</h5>
+                <p style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">The Sub Inspector is the
+                    non-cadre mid level
+                    entry position of Bangladesh Police</p>
+            </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="/static/assets/images/carousal 2.png" class="d-block w-100" alt="Image 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">ASSISTANT SUPERINTENDENT OF
+                    POLICE</h5>
+                <p style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">The Assistant Superintendent of
+                    Police (ASP)
+                    is the highest entry level position or rank of Bangladesh Police.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="/static/assets/images/carousal 3.png" class="d-block w-100" alt="Image 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">Training Session</h5>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="/static/assets/images/carousal 4.png" class="d-block w-100" alt="Image 4">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;text-shadow: 0 0 3px #000000, 0 0 5px #000000;">Grand Salute to Prime Minister
+                    of Bangladesh
+                </h5>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+<br>
+
+<!-- Card Content Start-->
+<h2>
+    <marquee behavior="scroll" direction="right" scrollamount="12"
+        style="background-color: crimson; color: white; font-size: xx-large; font-family: Georgia, 'Times New Roman', Times, serif;">
+        * * * * * * Our Services * * * * * * </marquee>
+</h2>
+
+
+<div class="card-group">
+    <div class="card">
+        <img src="/static/assets/images/login_icon.png" class="card-img-top mx-auto d-block" alt="..."
+            style="max-width: 150px;max-height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">Profile</h5>
+            <p class="card-text" style="color: black;">Profile Management</p>
+        </div>
+        <div class="card-footer">
+            <a href="/userDashboard.html" class="btn btn-primary">Profile</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/static/assets/images/wanted.png" class="card-img-top mx-auto d-block" alt="..."
+            style="max-width: 150px;max-height: 200px; ">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">Wanted List</h5>
+            <p class="card-text" style="color: black;">View wanted category criminals</p>
+        </div>
+        <div class="card-footer">
+            <a href="/wantedlist.html" class="btn btn-primary">View Wanted List</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/static/assets/images/help_desk.png" class="card-img-top mx-auto d-block" alt="..."
+            style="max-width: 150px;max-height: 200px; ">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">Local Intelligence</h5>
+            <p class="card-text" style="color: black;">Local Intelligence lets you report about criminal activity at emergency action team</p>
+        </div>
+        <div class="card-footer">
+            <a href="/localintelligence.html" class="btn btn-primary">Go to Local Intelligence</a>
+        </div>
+    </div>
+</div>
+<!-- Card Content End-->
+
+<!-- IGP Message section start-->
+<div class="d-flex justify-content-center border border-light p5">
+    <figure class="figure">
+        <h3 class="text-white bg-dark text-center">Message from the IGP</h3>
+        <img src="/static/assets/images/IGP.png" class="figure-img img-fluid rounded " alt="IGP MSG">
+    </figure>
+</div>
+<!-- IGP Message section End-->
+<br>
+{% endblock %}
