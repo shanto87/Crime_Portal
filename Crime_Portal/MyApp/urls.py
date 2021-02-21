@@ -11,11 +11,13 @@ urlpatterns = [
     path('aboutus.html/', views.aboutus),
     path('crimenews.html/', views.crimenews),
     path('localintelligence.html/', views.localintelligence),
-    path('violencereporting.html/', views.violencereporting),
     path('wantedlist.html/', views.wantedlist),
     path('signup.html/', views.signup),
     path('userDashboard.html/', views.userDashboard),
     path('gd.html/', views.gd),
+    path('charts.html/', views.charts),
+    path('prediction.html/', views.prediction),
+    path('pdfgenerate.html/', views.pdfgenerate),
 ]
 
 #urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

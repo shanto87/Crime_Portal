@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="background-color: white; color: black;">
+
+    <h2 style="text-align: center; ">General Diary Details</h2>
+    <button class="btn btn-secondary" style="float: left; padding-left: 10%;" id="download"> Download </button>
+
+    <div id="html"
+        style="padding-left: 10%; padding-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+        {% for x in data %}
+        <p id="heading">
+            <br>
+            <span style="font-weight: bold;">Date: {{x.issuedate}}</span> ,
+            <br>
+            <span style="font-weight: bold;">Time: {{x.issuetime}}</span>
+        </p>
+        <p id="gap">------------------------------------------------------</p>
+        <p id="paragraph">
+            To,
+            <br>
+            Officer In Charge,
+            <br>
+            {{x.psname}},
+            <br>
+            {{x.area}},
+        </p>
+        <br>
+        <p id="subject" style="font-weight: bold;">Subject: {{x.subject}}</p>
+        <p style="max-width: 6.5in; text-align: justify;">
+            Dear Sir,
+            <br>
+            I am <span style="font-weight: bold;">{{x.name}}</span>, having NID Number: <span
+                style="font-weight: bold;"> {{x.nid}}</span>, writing to you in
+            concern of my following issue.
+            <br>
+            {{x.details}}
+        </p>
+        <p style="max-width: 6.5in; text-align: justify;">
+            In the circumstances, I hereby kindly request you to take necessary steps regarding the matter and
+            entry the said matter as a general Diary with your police Station and oblige me thereby.
+        </p>
+        <p>
+            Yours truly, <br>
+            ----------------------------------------------------- <br><br>
+            Name: <span style="font-weight: bold;"> {{x.name}}</span>,<br>
+            Cell: <span style="font-weight: bold;"> {{x.mobile}}</span> <br>
+
+        </p>
+
+        <div style="max-height: 11.7in; max-width: 8.3in;">
+            <img src="/static/assets/images/seal.jpeg" style="height: 50%; width: 50%; border: 2px solid rgb(0, 0, 0)" alt="police logo">
+            <p style="font-weight: bold; font-size: xx-large; color: green; padding-left: 15%; ">VERIFIED</p>
+            <p style="color: crimson; font-weight: bold;">The document is generated on: <span  id="datetime"></span></p>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+<script>
+    window.onload = function () {
+        document.getElementById("download").addEventListener("click", () => {
+            const content = this.document.getElementById("html");
+            console.log(content);
+            console.log(window);
+            var opt = {
+                margin: 0.1,
+                filename: 'gd.pdf',
+                image: { type: 'png', quality: 1 },
+                dpi: 96,
+                html2canvas: { scale: 2, logging:true },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(content).set(opt).save();
+        })
+    }
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+
+{% endblock %}

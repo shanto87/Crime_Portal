@@ -29,7 +29,7 @@
                 <select id="gdtype" name="gdtype" style="width: max-content;color: black; background: snow;" required>
                     <option value="">Select an Option ---- </option>
                     <option value="Cyber_Crime">Cyber Crime</option>
-                    <option value="Steal_Or_Theft">Steal or Theft</option>
+                    <option value="Steal_Or_Lost">Steal or Lost</option>
                     <option value="Threatening">Threatening</option>
                     <option value="Missing_Complain">Missing Complain</option>
                     <option value="Snatching_or_Hijacking">Snatching or Hijacking</option>
@@ -66,8 +66,14 @@
             </div>
             <div>
                 <label style="padding-top: 10px;font-weight: bold;color: white;" for="datetime">Incident Happening
+                    Date</label><br>
+                <input type="date" name='issuedate' required>
+            </div>
+
+            <div>
+                <label style="padding-top: 10px;font-weight: bold;color: white;" for="datetime">Incident Happening
                     Time</label><br>
-                <input type="datetime-local" name="datetime" required>
+                <input type="time" name="issuetime" required>
             </div>
 
             <div class="form-group">
@@ -82,6 +88,17 @@
             <div class="form-group" style="padding-top: 15px;">
                 <input type="submit" name="submit">
             </div>
+        </div>
+        <div style="width: 50%;">
+            <!--Message Panel Start-->
+            {% for message in messages %}
+
+            <div class="alert bg-success text-white alert-warning alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <!--Message Panel End-->
         </div>
 
 

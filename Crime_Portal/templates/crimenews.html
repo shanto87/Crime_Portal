@@ -3,12 +3,12 @@
 {% block content %}
 <title>News</title>
 <form action="crimenews.html" enctype="multipart/form-data" method="GET"
-    style="background-image: url('/static/assets/images/bg3.jpg');">
+    style="background-image: url('https://i.gifer.com/IrM.gif'); padding-left: 5%;">
     <h2 style="color: white; text-align: center;">News</h2>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <div class="row container">
+    <div class="col-lg-12" style="width: 50%;">
         {% csrf_token %}
         {% for x in data %}
         <div style="padding-top: 10px;">

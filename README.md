@@ -9,7 +9,7 @@ after installing database,
 * Open Command Prompt
 * Navigate to Crime_Portal\MyENV\Scripts
 * type "a" and press TAB button
-* when you see autocomplete "activate", Press Enter
+* when you see autocomplete "activate", Press Enter and then
 * navigate to Crime_Portal\Crime_Portal
 * type "python manage.py makemigrations"
 * type "python manage.py migrate"

@@ -1,3 +1,4 @@
+from Crime_Portal.settings import TIME_ZONE
 from django.db import models
 
 # Create your models here.
@@ -33,6 +34,7 @@ class GeneralDiary(models.Model):
     nid = models.CharField(max_length=100)
     mobile = models.CharField(max_length=100)
     issuedate = models.DateField()
+    issuetime = models.TimeField()
     gdtype = models.CharField(max_length=100)
     area = models.CharField(max_length=100)
     psname = models.CharField(max_length=100)
@@ -42,10 +44,12 @@ class GeneralDiary(models.Model):
     verified = models.BooleanField(default=False)
 
 
+
 class GeneralDiaryByUsers(models.Model):
     email = models.CharField(max_length=100)
     gd_id = models.CharField(max_length=50)
-    creation_date_time = models.DateTimeField()
+    creation_date = models.DateField()
+    creation_time = models.TimeField()
 
 
 class AreaName(models.Model):
@@ -53,10 +57,6 @@ class AreaName(models.Model):
 
 
 class PSNames(models.Model):
-    psname = models.CharField(max_length=150)
-
-
-class PSNamesDuplicate(models.Model):
     psname = models.CharField(max_length=150)
 
 

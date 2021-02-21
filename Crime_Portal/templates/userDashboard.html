@@ -2,29 +2,112 @@
 
 {% block content %}
 <title>User Dashboard</title>
-<h3
-    style="text-align: center; background-color: bisque; color: black; font-family: Georgia, 'Times New Roman', Times, serif;">
-    User Profile</h3>
+<div class="float-container" style="width: 100%;">
+    <div class="container-child" style="float: left; width: 30%; height: auto;">
+        <h3
+            style="text-align: center; background-color: bisque; color: black; font-family: Georgia, 'Times New Roman', Times, serif;">
+            User Profile</h3>
 
-<form action="/userDashboard.html/" enctype="multipart/form-data" method="GET">
-    {% csrf_token %}
-    <div class="card bg-secondary card-deck " style="width:100%; height: auto;">
+        <form action="/userDashboard.html/" enctype="multipart/form-data" method="GET">
+            {% csrf_token %}
+            <div class="card bg-secondary card-deck " style="height: auto;">
 
-        {% for x in data%}
-        <img class="card-img-top" style="height: 400px; width: 290px;" src="{{x.image.url}}" alt="Card image">
-        <div class="card-body" style="background-color: gray;">
-            <h4 class="card-title"
-                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: black; font-weight: bold;">
-                {{x.firstname}}
-                {{x.lastname}}</h4>
-            <p class="card-text" style="color: white; ">National Identity: <strong
-                    style="color: black ;">{{x.nid}}</strong></p>
-            <p class="card-text" style="color: white; ">Resgistered Email: <strong
-                    style="color: black;">{{x.email}}</strong></p>
-            <a href="#" class="btn btn-primary">Edit Profile</a>
-        </div>
-        {% endfor %}
+                {% for x in data%}
+                <img class="card-img-top" style="height: 250px; width: 190px;" src="{{x.image.url}}" alt="Card image">
+                <div class="card-body" style="background-color: black; max-height: fit-content;">
+                    <h4 class="card-title"
+                        style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: lightyellow; font-weight: bold;">
+                        {{x.firstname}}
+                        {{x.lastname}}</h4>
+                    <p class="card-text" style="color: lightyellow; font-weight: bold; ">National Identity: <strong
+                            style="color: burlywood ;">{{x.nid}}</strong></p>
+                    <p class="card-text" style="color: lightyellow; font-weight: bold; ">Resgistered Email: <strong
+                            style="color: burlywood;">{{x.email}}</strong></p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </form>
     </div>
+    <div class="container-child" style="width: 70%; float: left; height: auto; padding-left: 5px;">
+        <!--Verified GD-->
 
-</form>
+        <h3
+            style="text-align: center;  font-family: Georgia, 'Times New Roman', Times, serif; background-color: teal; color: white;">
+            General Diary by You (Verified)</h3>
+        <table class="table table-bordered text-light bg-secondary">
+
+            <thead style="color: white; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+                    font-size: larger;">
+                <tr>
+                    <th>GD Id</th>
+                    <th>Issue Date</th>
+                    <th>GD Type</th>
+                    <th>Subject</th>
+                    <th>Police Station Name</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center; color: palegreen; background-color: black; font-size: large; ">
+                {% for x in gddetails %}
+                <tr>
+                    <td>{{x.gd_id}}</td>
+                    <td>{{x.issuedate}}</td>
+                    <td>{{x.gdtype}}</td>
+                    <td>{{x.subject}}</td>
+                    <td>{{x.psname}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            <form action="" method="POST" enctype="multipart/form-data" style="padding-top: 1%; padding-bottom: 1%;">
+                {% csrf_token %}
+                <label for="gdid">Select GD ID</label>
+                <select style="width: 25%;" name="gd_id" id="gdid" required>
+                    <option value="">Select -- </option>
+
+                    {% for x in gddetails %}
+                    <option s value="{{x.gd_id}}">{{x.gd_id}}</option>
+                    {% endfor %}
+
+                </select>
+                <input type="submit" class="btn btn-light" value="Generate PDF">
+            </form>
+        </div>
+    </div>
+    <div class="container-child" style="margin-left: 0%; width: 70%; float: left; height: auto; padding-left: 5px;">
+        <!--Non verified GD-->
+        <h3
+            style="background-color: crimson; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+            General Diary by You (Pending Verification)</h3>
+        <table class="table table-bordered text-light bg-secondary">
+
+            <thead style="color: white; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+                    font-size: larger;">
+                <tr>
+                    <th>GD Id</th>
+                    <th>Issue Date</th>
+                    <th>GD Type</th>
+                    <th>Subject</th>
+                    <th>Police Station Name</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center; color: salmon; background-color: black; font-size: large; ">
+                {% for x in nonVerified %}
+                <tr>
+                    <td>{{x.gd_id}}</td>
+                    <td>{{x.issuedate}}</td>
+                    <td>{{x.gdtype}}</td>
+                    <td>{{x.subject}}</td>
+                    <td>{{x.psname}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
 {% endblock %}

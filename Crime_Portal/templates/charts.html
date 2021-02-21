@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="float-container">
+    <div class="float-child" style="float: left; width: 50%; background-color: ivory;">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <h1 style="color: black; text-align: center;">Crime type count</h1>
+        <canvas id="myChart2"></canvas>
+
+        <script>
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'horizontalBar',
+
+                // The data for our dataset
+                data: {
+                    labels: {{ label2| safe}},
+            datasets: [{
+                label: 'Crime count according to type',
+                backgroundColor: 'rgb(39, 169, 184)',
+                borderColor: 'black',
+                hoverBackgroundColor: 'rgb(48, 96, 99)',
+                data: {{ data2| safe}},
+            }]
+        },       
+            // Configuration options go here
+            options: { }
+    });
+        </script>
+    </div>
+    <div class="float-child col sm md-5" style="float: left; width: 50%;background-color: lightgrey; ">
+        <div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <h1 style="color: black; text-align: center;">Crime count District Wise Analysis</h1>
+            <canvas id="myChart"></canvas>
+
+            <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'pie',
+
+                    // The data for our dataset
+                    data: {
+                        labels: {{ label | safe}},
+                datasets: [{
+                    label: 'Crime Count Charts According to Districts',                    
+                    backgroundColor: 'rgb(184, 39, 92)',
+                    borderColor: 'black',
+                    hoverBackgroundColor: 'rgb(22, 42, 43)',
+                    data: {{ data| safe}},
+                }]
+            },
+                // Configuration options go here
+                options: { }
+        });
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Prediction</title>
+
+<div class="float-container" class='form-group' style="width: 100%; height: 100%;">
+    <div class="float-child" style="width: 50%; float: left; height: 100%; ">
+        <form action="" enctype="multipart/form-data" method="POST" style="height: 100%;">
+            {% csrf_token %}
+            <h1 style="text-align: center;">Check Safety Level</h1>
+            <div class="container"
+                style="background-image: url('https://i.gifer.com/IrM.gif'); height: 100%; padding-top: 10%; padding-bottom: 18%; padding-left: 10%; ">
+                <div style="padding-left: 10px;">
+                    <label for="datetime">Time : </label><br>
+                    <input type="time" id="datetime" name="time" style="width: 40%;" required>
+
+                    <br>
+                    <label style="padding-top: 10px;color: white;" for="area">District Name</label><br>
+                    <select id="area" name="area" style="width: 40%;color: black;" required>
+                        <option value="">Select an Option ---- </option>
+                        {% for x in Dist_data %}
+                        <option value="{{x.district}}">{{x.district}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <br>
+                    <br>
+
+                    <input class="btn bg-secondary text-light" type="submit" value="Check Safety">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container float-child" style="width: 50%; float: left; height: 90%; color: snow; ">
+        <form action="" enctype="multipart/form-data" method="GET">
+            <h1 style="text-align: center;">Crime Stats and Safety Check Result</h1>
+            <div style="background-image: url('https://i.gifer.com/IrM.gif');">
+
+                <div style="padding-top: 5px; padding-left: 5px;">
+                    <p>
+                    <h3 style="text-align: center; background-color: white; color: black; width: 100%;">Your input Data
+                    </h3>
+                    <h5>Area Name: {{area}}</h5>
+                    <h5>Time: {{time}} (International Time)</h5>
+                    <h5>Time Querter: {{qtr}}</h5>
+                    </p>
+                </div>
+
+                <div style="padding-top: 5px; padding-left: 5px; ">
+                    <p>
+                    <h3 style="text-align: center; background-color: white; color: black; width: 100%;">Crime Stat
+                        according to Type</h3>
+
+                    {% for x,y in gdfreq.items %}
+                    <li
+                        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold; font-size: larger;">
+                        {{x}} : {{y}}</li>
+                    {% endfor %}
+                    </p>
+                </div>
+
+                <div style="padding-top: 5px; padding-left: 5px; ">
+                    <p>
+                    <h3 style="text-align: center; background-color: white; color: black; width: 100%;">Crime Stat
+                        according to Police Station</h3>
+
+                    {% for x,y in psfreq.items %}
+                    <li
+                        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold; font-size: larger;">
+                        {{x}} : {{y}}</li>
+                    {% endfor %}
+                    </p>
+                </div>
+                <div style="padding-top: 5px; padding-left: 5px; ">
+                    <p>
+                    <h3 style="text-align: center; background-color: white; color: black; width: 100%;">Danger Rate</h3>
+
+                    <li
+                        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold; font-size: larger;">
+                        Crime Rate as per Whole Area (In this time querter): {{crime_rate_area}}%</li>
+                    <li
+                        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold; font-size: larger;">
+                        Crime Rate as per Whole Country: {{crime_rate_country}}%</li>
+                    </p>
+                </div>
+            </div>
+
+            <!--{{data | safe}}
+
+            <br>
+
+            {{describe | safe}}-->
+
+
+        </form>
+    </div>
+</div>
+{% endblock %}
